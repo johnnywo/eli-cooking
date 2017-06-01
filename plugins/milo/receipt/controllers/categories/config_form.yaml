@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Category
+
+# Model Form Field configuration
+form: $/milo/receipt/models/category/fields.yaml
+
+# Model Class name
+modelClass: Milo\Receipt\Models\Category
+
+# Default redirect location
+defaultRedirect: milo/receipt/categories
+
+# Create page
+create:
+    title: Create Category
+    redirect: milo/receipt/categories/update/:id
+    redirectClose: milo/receipt/categories
+
+# Update page
+update:
+    title: Edit Category
+    redirect: milo/receipt/categories
+    redirectClose: milo/receipt/categories
+
+# Preview page
+preview:
+    title: Preview Category

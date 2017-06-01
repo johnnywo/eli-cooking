@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Receipt
+
+# Model Form Field configuration
+form: $/milo/receipt/models/receipt/fields.yaml
+
+# Model Class name
+modelClass: Milo\Receipt\Models\Receipt
+
+# Default redirect location
+defaultRedirect: milo/receipt/receipts
+
+# Create page
+create:
+    title: Create Receipt
+    redirect: milo/receipt/receipts/update/:id
+    redirectClose: milo/receipt/receipts
+
+# Update page
+update:
+    title: Edit Receipt
+    redirect: milo/receipt/receipts
+    redirectClose: milo/receipt/receipts
+
+# Preview page
+preview:
+    title: Preview Receipt

@@ -1,0 +1,53 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    name:
+        label: Name
+    picture:
+        label: Receipt Picture
+        type: fileupload
+        mode: image
+        imageHeight: 260
+        imageWidth: 260
+        thumbOptions:
+            mode: crop
+            offset:
+                - 0
+                - 0
+            quality: 90
+            sharpen: 0
+            extension: auto
+    incredients:
+        label: Incredients
+        type: repeater
+        form:
+            fields:
+                incredient:
+                    label: Incredient
+                    span: left
+                amount:
+                    label: Amount
+                    span: left
+                unit:
+                    label: Size
+                    type: dropdown
+                    span: right
+                    options:
+                        g: g
+                        kg: kg
+                        l: l
+                        ml: ml
+    preparation:
+        label: Preparation
+        type: markdown
+        size: huge
+        mode: split
+    category:
+        label: Categories
+        type: relation
+        nameFrom: name
+
+
+

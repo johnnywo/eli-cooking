@@ -1,0 +1,5 @@
+1.0.1:
+    - First version of Receipt, create Migrations
+    - create_categories_table.php
+    - create_receipts_table.php
+    - create_receipt__categories_table.php

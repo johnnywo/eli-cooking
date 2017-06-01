@@ -1,0 +1,40 @@
+title = "Rezept"
+url = "/rezepte/:slug"
+layout = "default"
+==
+<?php
+    use \Milo\Receipt\Models\Receipt;
+
+    function onInit(){
+        $slug = $this->param('slug');
+        $receipt = new Receipt;
+        $receipt = $receipt->where('slug', $slug);
+        $this['receipt'] = $receipt->first();
+    }
+?>
+==
+
+<div class="container">
+
+    <h2>{{ receipt.name }}</h2></a>
+    <img src="{{ receipt.picture.path }}" width="300px"/>
+    <p>
+    <table class="table">
+        <tr>
+            <th>Zutaten:</th>
+            <th>Menge:</th>
+        </tr>
+        {% for incredient in receipt.incredients %}
+            <tr>
+                <td>{{ incredient.incredient }}</td>
+                <td>{{ incredient.amount }}{{ incredient.unit }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    {{ receipt.preparation|md }} <br>
+
+    {{ receipt.category.name|json_encode }}
+
+    </p>
+
+</div>
