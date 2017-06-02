@@ -1,0 +1,15 @@
+@media (max-width: 768px) {
+    .mob-inline{
+        display: inline-block;
+        vertical-align: middle;
+        margin-bottom: 0;
+    }
+}
+
+.mt-30{
+    margin-top: 30px;
+}
+
+.mb-30{
+    margin-bottom: 30px;
+}

@@ -13,6 +13,7 @@ description = "Default layout"
         <link rel="icon" type="image/png" href="{{ 'assets/images/october.png'|theme }}">
         <link href="{{ 'assets/css/vendor.css'|theme }}" rel="stylesheet">
         <link href="{{ 'assets/css/theme.css'|theme }}" rel="stylesheet">
+        <link href="{{ 'assets/css/eli.css'|theme }}" rel="stylesheet">
         {% styles %}
     </head>
     <body>
@@ -21,6 +22,10 @@ description = "Default layout"
         <header id="layout-header">
             {% partial 'site/header' %}
         </header>
+
+        <div class="sitesearch">
+            {% partial 'site/site-search' %}
+        </div>
 
         <!-- Content -->
         <section id="layout-content">

@@ -1,6 +1,7 @@
 <?php namespace Milo\Receipt;
 
 use Backend;
+use Milo\Receipt\Models\Receipt;
 use System\Classes\PluginBase;
 
 /**
@@ -40,7 +41,36 @@ class Plugin extends PluginBase
      */
     public function boot()
     {
+	    \Event::listen('offline.sitesearch.query', function ($query) {
 
+		    // Search your plugin's contents
+		    $items = Receipt::where('name', 'like', "%${query}%")
+                            ->orWhere('preparation', 'like', "%${query}%")
+                            ->get();
+
+		    // Now build a results array
+		    $results = $items->map(function ($item) use ($query) {
+
+			    // If the query is found in the title, set a relevance of 2
+			    $relevance = mb_stripos($item->name, $query) !== false ? 2 : 1;
+
+			    return [
+				    'title'     => $item->name,
+				    'text'      => $item->preparation,
+				    'url'       => '/rezepte/' . $item->slug,
+				    'thumb'     => $item->picture->first(), // Instance of System\Models\File
+				    'relevance' => $relevance, // higher relevance results in a higher
+				    // position in the results listing
+				    // 'meta' => 'data',       // optional, any other information you want
+				    // to associate with this result
+			    ];
+		    });
+
+		    return [
+			    'provider' => 'Rezepte', // The badge to display for this result
+			    'results'  => $results,
+		    ];
+	    });
     }
 
     /**
