@@ -20,7 +20,7 @@ class Receipts extends ComponentBase
 
 	public function index()
 	{
-		$receipt = Receipt::all();
+		$receipt = Receipt::with('category')->get();
 
 		return $receipt;
     }

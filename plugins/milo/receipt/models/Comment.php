@@ -3,41 +3,37 @@
 use Model;
 
 /**
- * Category Model
+ * Comment Model
  */
-class Category extends Model
+class Comment extends Model
 {
-	use \October\Rain\Database\Traits\Sluggable;
     /**
      * @var string The database table used by the model.
      */
-    public $table = 'milo_receipt_categories';
+    public $table = 'milo_receipt_comments';
 
     /**
      * @var array Guarded fields
      */
     protected $guarded = ['*'];
 
-	protected $slugs = ['slug' => 'name'];
-
     /**
      * @var array Fillable fields
      */
-    protected $fillable = [];
+    protected $fillable = ['receipt_id', 'comment', 'your_name', 'email'];
 
     /**
      * @var array Relations
      */
     public $hasOne = [];
     public $hasMany = [];
-    public $belongsTo = [];
-    public $belongsToMany = [
-	    'receipt' => ['Milo\Receipt\Models\Receipt', 'table' => 'milo_receipt_receipt__categories']
+    public $belongsTo = [
+    	'receipt' => ['Milo\Receipt\Models\Receipt', 'table' => 'milo_receipt_receipts']
     ];
+    public $belongsToMany = [];
     public $morphTo = [];
     public $morphOne = [];
     public $morphMany = [];
     public $attachOne = [];
     public $attachMany = [];
-
 }

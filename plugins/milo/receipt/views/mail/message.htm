@@ -1,0 +1,89 @@
+subject = "Neuer Kommentar Eli-Cooking"
+layout = "guuest"
+==
+
+Hi {{ name }},
+
+You ({{ name }}, {{ email }}) like to reserve a table on:
+Date: {{ date }}
+Time: {{ time }}
+
+for {{ people }} People in {% if smoker == "nonsmoker" %}non-smoker's Area{% elseif smoker == "smoker" %}smoker's Area{% else %}Molly Darcy's Pub{% endif %}.
+
+Your message:
+{{ sometext }}
+
+==
+
+<!-- body -->
+<table class="body-wrap" bgcolor="#f6f6f6">
+    <tr>
+        <td></td>
+        <td class="container" bgcolor="#FFFFFF">
+
+            <!-- content -->
+            <div class="content">
+                <table>
+                    <tr>
+                        <td>
+                            <p>Auto System E-Mail —> your request has been received by Molly Darcys Inbox <br>
+                                and is waiting for a staff member to be acknowledged. <br>
+                                <br>
+                                <strong>This is not a confirmation of reservation!</strong></p>
+                            <br>
+                            <p>Hi {{ name }},<br>
+                            You <strong>({{ name }}, {{ email }})</strong> like to reserve a table on:</p>
+
+                            <table>
+                                <tr>
+                                    <td>Date:</td>
+                                    <td><strong>{{ date|date("d.m.Y") }}</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>Time:</td>
+                                    <td><strong>{{ time }}</strong></td>
+                                </tr>
+                            </table>
+
+                            <p>for <strong>{{ people }}</strong> People in {% if smoker == "nonsmoker" %}<strong>non-smoker's Area</strong>{% elseif smoker == "smoker" %}<strong>smoker's Area</strong>{% else %}Molly Darcy's Pub{% endif %}.</p>
+
+                            <p>Your message: <br>
+                            {{ sometext }}</p>
+
+
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <!-- /content -->
+
+        </td>
+        <td></td>
+    </tr>
+</table>
+<!-- /body -->
+
+<!-- footer -->
+<table class="footer-wrap">
+    <tr>
+        <td></td>
+        <td class="container">
+
+            <!-- content -->
+            <div class="content">
+                <table>
+                    <tr>
+                        <td align="center">
+                            <p><a href="http://www.mollydarcys.at">&copy;2017 Molly Darcy's Irish Pub</a></p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <!-- /content -->
+
+        </td>
+        <td></td>
+    </tr>
+</table>
+<!-- /footer -->
+

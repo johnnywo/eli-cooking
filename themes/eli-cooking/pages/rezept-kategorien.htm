@@ -1,0 +1,52 @@
+url = "/rezept-kategorien/:slug"
+layout = "default"
+
+[categories]
+==
+
+<div class="container">
+
+    <div class="page-header">
+        <h2>Rezepte
+            <small>jüngst hinzugefügt</small>
+        </h2>
+    </div>
+    <p>
+        Sed porttitor lectus nibh. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
+        Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Quisque velit nisi, pretium
+        ut lacinia in, elementum id enim. Nulla porttitor accumsan tincidunt. Curabitur arcu erat, accumsan id imperdiet
+        et, porttitor at sem.
+    </p>
+
+    {#{{ d(categories.index) }}#}
+
+    {% for item in categories.index %}
+        {% for receipt in item.receipt %}
+        <a href="rezepte/{{ receipt.slug }}"><h2>{{ receipt.name }}</h2></a>
+        <img class="img-responsive" src="{{ receipt.picture.path }}"/>
+        <p>
+        <table class="table">
+        <tr>
+            <th>Zutaten:</th>
+            <th>Menge:</th>
+        </tr>
+            {% for incredient in receipt.incredients %}
+                <tr>
+                    <td>{{ incredient.incredient }}</td>
+                    <td>{{ incredient.amount }}{{ incredient.unit }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+        {{ receipt.preparation|md }} <br>
+
+        {% for category in receipt.category %}
+
+            <a href="/rezept-kategorien/{{ category.slug }}">{{ category.name }}</a>
+
+        {% endfor %}
+
+        </p>
+            {% endfor %}
+    {% endfor %}
+
+</div>

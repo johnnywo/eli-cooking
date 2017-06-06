@@ -45,7 +45,9 @@ class Receipt extends Model
      * @var array Relations
      */
     public $hasOne = [];
-    public $hasMany = [];
+    public $hasMany = [
+    	'comment' => ['Milo\Receipt\Models\Comment', 'table' => 'milo_receipt_comments']
+    ];
     public $belongsTo = [];
     public $belongsToMany = [
 	    'category' => ['Milo\Receipt\Models\Category', 'table' => 'milo_receipt_receipt__categories']

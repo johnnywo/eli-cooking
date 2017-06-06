@@ -3,3 +3,6 @@
     - create_categories_table.php
     - create_receipts_table.php
     - create_receipt__categories_table.php
+1.0.2:
+    - Add a Comments Table
+    - create_comments_table.php

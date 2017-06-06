@@ -1,40 +1,87 @@
 title = "Rezept"
 url = "/rezepte/:slug"
 layout = "default"
+
+[comments]
 ==
 <?php
     use \Milo\Receipt\Models\Receipt;
 
     function onInit(){
         $slug = $this->param('slug');
-        $receipt = new Receipt;
-        $receipt = $receipt->where('slug', $slug);
-        $this['receipt'] = $receipt->first();
-    }
+$receipt = new Receipt;
+$receipt = $receipt->where('slug', $slug)->with('category');
+$this['receipt'] = $receipt->first();
+//dd($this['receipt']);
+}
+
+function onClick(){
+return back();
+}
 ?>
 ==
 
 <div class="container">
-
-    <h2>{{ receipt.name }}</h2></a>
-    <img src="{{ receipt.picture.path }}" width="300px"/>
-    <p>
-    <table class="table">
-        <tr>
-            <th>Zutaten:</th>
-            <th>Menge:</th>
-        </tr>
-        {% for incredient in receipt.incredients %}
+    <img src="{{ receipt.picture.path }}" class="img-responsive"/>
+    <div id="printableArea">
+        <h1>{{ receipt.name }}</h1></a>
+        <table class="table">
             <tr>
-                <td>{{ incredient.incredient }}</td>
-                <td>{{ incredient.amount }}{{ incredient.unit }}</td>
+                <th>Zutaten:</th>
+                <th>Menge:</th>
             </tr>
+            {% for incredient in receipt.incredients %}
+                <tr>
+                    <td>{{ incredient.incredient }}</td>
+                    <td>{{ incredient.amount }}{{ incredient.unit }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+
+        <p>{{ receipt.preparation|md }}</p>
+
+        {% for category in receipt.category %}
+
+            <a href="/rezept-kategorien/{{ category.slug }}">{{ category.name }}</a>
+
         {% endfor %}
-    </table>
-    {{ receipt.preparation|md }} <br>
 
-    {{ receipt.category.name|json_encode }}
+        <button class="btn btn-default hidden-print" onclick="printDiv('printableArea')" data-request="onClick">
+            Rezept drucken
+        </button>
 
-    </p>
+        {% for receipt in comments.showComments %}
+            {% for comment in receipt.comment %}
+            <p>
+                {{ comment.comment }} <br>
+               <small><i>Kommentar von {{ comment.your_name }} ({{ comment.created_at|time_diff }})</i></small>
+            </p>
+                {% endfor %}
+        {% endfor %}
+        <form
+                data-request="onSend"
+                data-request-validate
+                data-request-flash>
 
+            <div class="alert alert-danger" data-validate-error></div>
+
+            <div class="form-group col-sm-12">
+                <label for="comment">Kommentar</label>
+                <textarea id="comment" name="comment" class="form-control" rows="3"></textarea>
+            </div>
+            <div class="form-group col-sm-6">
+                <label for="your_name">Name</label>
+                <input type="text" class="form-control" id="your_name" name="your_name" placeholder="Name">
+            </div>
+            <div class="form-group col-sm-6">
+                <label for="email">E-Mail</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="E-Mail">
+            </div>
+            <div class="form-group col-sm-12">
+            <input type="hidden" id="receipt_id" name="receipt_id" value="{{ receipt.id }}">
+            <button {#data-request="onSubmitComment"#} type="submit" class="btn btn-default">Absenden</button>
+            </div>
+        </form>
+
+    </div>
 </div>

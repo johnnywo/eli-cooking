@@ -82,6 +82,8 @@ class Plugin extends PluginBase
     {
         return [
             'Milo\Receipt\Components\Receipts' => 'receipts',
+            'Milo\Receipt\Components\Categories' => 'categories',
+            'Milo\Receipt\Components\Comments' => 'comments',
         ];
     }
 
