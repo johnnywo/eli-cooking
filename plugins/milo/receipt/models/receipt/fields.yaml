@@ -4,9 +4,9 @@
 
 fields:
     name:
-        label: Name
+        label: Rezept Name
     picture:
-        label: Receipt Picture
+        label: Rezept Bild
         type: fileupload
         mode: image
         imageHeight: 260
@@ -19,33 +19,39 @@ fields:
             quality: 90
             sharpen: 0
             extension: auto
+    intro:
+        label: Einführung
+        type: markdown
+        size: small
+        mode: split
     incredients:
-        label: Incredients
+        label: Zutaten
         type: repeater
         form:
             fields:
-                incredient:
-                    label: Incredient
-                    span: left
                 amount:
-                    label: Amount
-                    span: left
+                    label: Menge
+                    span: auto
                 unit:
-                    label: Size
+                    label: Einheit
                     type: dropdown
-                    span: right
+                    span: auto
                     options:
+                        Stk: Stk.
                         g: g
                         kg: kg
                         l: l
                         ml: ml
+                incredient:
+                    label: Zutat
+                    span: full
     preparation:
-        label: Preparation
+        label: Zubereitung
         type: markdown
         size: huge
         mode: split
     category:
-        label: Categories
+        label: Kategorien
         type: relation
         nameFrom: name
 

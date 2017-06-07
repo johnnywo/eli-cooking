@@ -24,74 +24,13 @@ description = "Default layout"
 
     <!-- Sidebar -->
     <div id="sidebar-wrapper">
-        <ul class="sidebar-nav">
-            <li class="sidebar-brand">
-                <a href="/">
-                    Eli's Cooking
-                </a>
-            </li>
-            <li>
-                <a href="#">Dashboard</a>
-            </li>
-            <li>
-                <a href="#">Shortcuts</a>
-            </li>
-            <li>
-                <a href="#">Overview</a>
-            </li>
-            <li>
-                <a href="#">Events</a>
-            </li>
-            <li>
-                <a href="#">About</a>
-            </li>
-            <li>
-                <a href="#">Services</a>
-            </li>
-            <li>
-                <a href="#">Contact</a>
-            </li>
-        </ul>
+        {% partial 'site/sidebar-nav' %}
     </div>
     <!-- /#sidebar-wrapper -->
 
     <!-- Page Content -->
     <div id="page-content-wrapper">
-        <div class="container">
-            <div class="row">
-
-                <a href="#menu-toggle" id="menu-toggle" class="navbar-fixed-top">
-                    <button type="button" class="navbar-toggle">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                </a>
-                <a class="navbar-brand" href="{{ 'home'|page }}">Eli's Cooking</a>
-                {#<a href="#menu-toggle" class="btn btn-primary" id="menu-toggle">Toggle Menu</a>#}
-                <div class="collapse navbar-collapse navbar-main-collapse">
-                    <ul class="nav navbar-nav">
-                        <li class="separator hidden-xs"></li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Rezepte <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Action</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something else here</a></li>
-                                <li role="separator" class="divider"></li>
-                                <li><a href="#">Separated link</a></li>
-                                <li role="separator" class="divider"></li>
-                                <li><a href="#">One more separated link</a></li>
-                            </ul>
-                        </li>
-                        <li class="{% if this.page.id == 'ueber-mich' %}active{% endif %}"><a href="{{ 'ueber-mich'|page }}">Über mich</a></li>
-                        <li class="{% if this.page.id == 'kontakt' %}active{% endif %}"><a href="{{ 'kontakt'|page }}">Kontakt</a></li>
-                    </ul>
-                </div>
-            </div>
-
-        </div>
+        {% partial 'site/nav' %}
         {% flash %}
         <p
                 data-control="flash-message"

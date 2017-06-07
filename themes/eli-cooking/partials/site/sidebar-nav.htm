@@ -1,0 +1,20 @@
+==
+<?php
+    use \Milo\Receipt\Models\Category;
+
+    function onStart()
+    {
+        $this['category'] = Category::all();
+    }
+?>
+==
+<ul class="sidebar-nav">
+    <li class="sidebar-brand">
+        <a href="/">
+            Eli's Cooking
+        </a>
+    </li>
+    {% for item in category %}
+        <li><a href="/rezept-kategorien/{{ item.slug }}">{{ item.name }}</a></li>
+    {% endfor %}
+</ul>

@@ -3,20 +3,22 @@ layout = "default"
 
 [categories]
 ==
+<?php
+    use \Milo\Receipt\Models\Category;
+
+    function onStart()
+    {
+        $slug = $this->param('slug');
+        $this['pagetitle'] = Category::where('slug', $slug)->first();
+    }
+?>
+==
 
 <div class="container">
 
     <div class="page-header">
-        <h2>Rezepte
-            <small>jüngst hinzugefügt</small>
-        </h2>
+        <h1>{{ pagetitle.name }}</h1>
     </div>
-    <p>
-        Sed porttitor lectus nibh. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
-        Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Quisque velit nisi, pretium
-        ut lacinia in, elementum id enim. Nulla porttitor accumsan tincidunt. Curabitur arcu erat, accumsan id imperdiet
-        et, porttitor at sem.
-    </p>
 
     {#{{ d(categories.index) }}#}
 

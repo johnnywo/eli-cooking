@@ -11,6 +11,7 @@ class CreateReceiptsTable extends Migration
         Schema::create('milo_receipt_receipts', function(Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
+            $table->text('intro');
             $table->string('name');
             $table->json('incredients');
             $table->text('preparation');

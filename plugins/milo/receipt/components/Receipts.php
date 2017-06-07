@@ -20,7 +20,9 @@ class Receipts extends ComponentBase
 
 	public function index()
 	{
-		$receipt = Receipt::with('category')->get();
+		$receipt = Receipt::with('category')
+		                  ->orderBy('created_at', 'desc')
+		                  ->get();
 
 		return $receipt;
     }
