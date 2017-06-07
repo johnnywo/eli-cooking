@@ -2,6 +2,7 @@
 
 use Cms\Classes\ComponentBase;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Redirect;
 use Milo\Receipt\Models\Comment;
 use Milo\Receipt\Models\Receipt;
 use Validator;
@@ -91,6 +92,8 @@ class Comments extends ComponentBase
 			});*/
 
 			Flash::success('Kommentar wurde übermittelt!');
+
+			return Redirect::back();
 		}
 	}
 }

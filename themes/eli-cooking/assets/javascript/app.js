@@ -58,3 +58,8 @@ function printDiv(printableArea) {
     document.body.innerHTML = originalContents;
 }
 
+$("#menu-toggle").click(function(e) {
+    e.preventDefault();
+    $("#wrapper").toggleClass("toggled");
+});
+

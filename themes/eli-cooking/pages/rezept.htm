@@ -24,7 +24,7 @@ return back();
 <div class="container">
     <img src="{{ receipt.picture.path }}" class="img-responsive"/>
     <div id="printableArea">
-        <h1>{{ receipt.name }}</h1></a>
+        <h1 class="primary-color">{{ receipt.name }}</h1></a>
         <table class="table">
             <tr>
                 <th>Zutaten:</th>
@@ -52,13 +52,13 @@ return back();
 
         {% for receipt in comments.showComments %}
             {% for comment in receipt.comment %}
-            <p>
+            <p class="hidden-print">
                 {{ comment.comment }} <br>
                <small><i>Kommentar von {{ comment.your_name }} ({{ comment.created_at|time_diff }})</i></small>
             </p>
                 {% endfor %}
         {% endfor %}
-        <form
+        <form class="hidden-print"
                 data-request="onSend"
                 data-request-validate
                 data-request-flash>
