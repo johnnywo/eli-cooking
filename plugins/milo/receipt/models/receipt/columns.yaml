@@ -7,9 +7,9 @@ columns:
         label: ID
         searchable: true
     name:
-        label: Name
+        label: Titel
         searchable: true
     preparation:
-        label: Preparation
+        label: Zubereitung
         searchable: true
 

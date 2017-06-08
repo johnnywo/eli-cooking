@@ -94,13 +94,17 @@ class Plugin extends PluginBase
      */
     public function registerPermissions()
     {
-        return []; // Remove this line to activate
 
         return [
-            'milo.receipt.some_permission' => [
-                'tab' => 'Receipt',
-                'label' => 'Some permission'
+            'milo.receipt.access_receipts' => [
+                'tab' => 'Receipts',
+                'label' => 'Manage Receipts'
             ],
+            'milo.receipt.access_receipt_categories' => [
+	            'tab' => 'Receipt Categories',
+	            'label' => 'Manage Receipt Categories'
+            ],
+
         ];
     }
 
@@ -114,7 +118,7 @@ class Plugin extends PluginBase
 
         return [
             'receipt' => [
-                'label'       => 'Receipt',
+                'label'       => 'Rezepte',
                 'url'         => Backend::url('milo/receipt/receipts'),
                 'icon'        => 'icon-cutlery',
                 'permissions' => ['milo.receipt.*'],
@@ -122,7 +126,7 @@ class Plugin extends PluginBase
 
                 'sideMenu' => [
 	                'categories' => [
-		                'label'       => 'Categories',
+		                'label'       => 'Kategorien',
 		                'url'         => Backend::url('milo/receipt/categories'),
 		                'icon'        => 'icon-tags',
 		                'permissions' => ['milo.receipt.*'],

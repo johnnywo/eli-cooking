@@ -8,6 +8,9 @@ use Backend\Classes\Controller;
  */
 class Categories extends Controller
 {
+
+	public $requiredPermissions = ['milo.receipt.access_receipt_categories'];
+
     public $implement = [
         'Backend.Behaviors.FormController',
         'Backend.Behaviors.ListController'

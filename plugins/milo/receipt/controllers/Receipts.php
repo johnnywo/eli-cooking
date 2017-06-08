@@ -8,6 +8,9 @@ use Backend\Classes\Controller;
  */
 class Receipts extends Controller
 {
+
+	public $requiredPermissions = ['milo.receipt.access_receipts'];
+
     public $implement = [
         'Backend.Behaviors.FormController',
         'Backend.Behaviors.ListController'
@@ -22,4 +25,6 @@ class Receipts extends Controller
 
         BackendMenu::setContext('Milo.Receipt', 'receipt', 'receipts');
     }
+
+
 }
