@@ -79,6 +79,10 @@ h1{
         vertical-align: middle;
         margin-bottom: 0;
     }
+    .navbar-fixed-top{
+        width: 70px;
+        left: inherit;
+    }
 }
 
 
