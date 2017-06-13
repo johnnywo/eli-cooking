@@ -29,7 +29,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Rezepte <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         {% for item in category %}
-                            <li><a href="/rezept-kategorien/{{ item.slug }}">{{ item.name }}</a></li>
+                            <li><a href="{{ url('/rezept-kategorien') }}/{{ item.slug }}">{{ item.name }}</a></li>
                         {% endfor %}
                     </ul>
                 </li>

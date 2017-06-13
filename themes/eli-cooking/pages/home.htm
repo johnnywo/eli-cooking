@@ -51,8 +51,7 @@ layout = "default"
                 {% if counter > 1 %}
                     /
                 {% endif %}
-                <a href="/rezept-kategorien/{{ category.slug }}">{{ category.name }}</a>
-
+                <a href="{{ url('/rezept-kategorien') }}/{{ category.slug }}">{{ category.name }}</a>
 
             {% endfor %}
         </small>

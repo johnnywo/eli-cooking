@@ -43,7 +43,7 @@ return back();
 
         {% for category in receipt.category %}
 
-            <a href="/rezept-kategorien/{{ category.slug }}">{{ category.name }}</a>
+            <a href="{{ url('/rezept-kategorien') }}/{{ item.slug }}">{{ item.name }}">{{ category.name }}</a>
 
         {% endfor %}
 
