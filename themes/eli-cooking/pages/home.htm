@@ -27,20 +27,9 @@ layout = "default"
     {% for item in receipts.index %}
         <a href="rezepte/{{ item.slug }}"><h2>{{ item.name }}</h2></a>
         <a href="rezepte/{{ item.slug }}"><img class="img-responsive" src="{{ item.picture.path }}"/></a>
+
         <p>
-        <table class="table">
-            <tr>
-                <th>Zutaten:</th>
-                <th>Menge:</th>
-            </tr>
-            {% for incredient in item.incredients %}
-                <tr>
-                    <td>{{ incredient.incredient }}</td>
-                    <td>{{ incredient.amount }}{{ incredient.unit }}</td>
-                </tr>
-            {% endfor %}
-        </table>
-        {{ html_limit(item.preparation, 150)|raw }}
+        {{ html_limit(item.intro, 150)|raw }}
         <a href="rezepte/{{ item.slug }}"><button class="btn btn-primary">mehr</button></a>
         <br>
         <small>
@@ -55,7 +44,6 @@ layout = "default"
 
             {% endfor %}
         </small>
-
         </p>
     {% endfor %}
 

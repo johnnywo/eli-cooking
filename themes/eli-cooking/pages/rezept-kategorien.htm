@@ -28,7 +28,7 @@ layout = "default"
         <img class="img-responsive" src="{{ receipt.picture.path }}"/>
         <p>
 
-        {{ receipt.preparation|md }} <br>
+            {{ html_limit(item.intro, 150)|raw }} <br>
 
         <small>
             {% set counter = 0 %}
