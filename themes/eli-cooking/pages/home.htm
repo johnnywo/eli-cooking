@@ -29,7 +29,7 @@ layout = "default"
         <a href="rezepte/{{ item.slug }}"><img class="img-responsive" src="{{ item.picture.path }}"/></a>
 
         <p>
-        {{ html_limit(item.intro, 150)|raw }}
+        {{ html_limit(item.intro, 150)|md }}
         <a href="rezepte/{{ item.slug }}"><button class="btn btn-primary">mehr</button></a>
         <br>
         <small>
