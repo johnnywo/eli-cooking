@@ -24,28 +24,23 @@ layout = "default"
 
     {% for item in categories.index %}
         {% for receipt in item.receipt %}
-        <a href="rezepte/{{ receipt.slug }}"><h2>{{ receipt.name }}</h2></a>
+        <a href="{{ url('/rezepte') }}/{{ receipt.slug }}"><h2>{{ receipt.name }}</h2></a>
         <img class="img-responsive" src="{{ receipt.picture.path }}"/>
         <p>
-        <table class="table">
-        <tr>
-            <th>Zutaten:</th>
-            <th>Menge:</th>
-        </tr>
-            {% for incredient in receipt.incredients %}
-                <tr>
-                    <td>{{ incredient.incredient }}</td>
-                    <td>{{ incredient.amount }}{{ incredient.unit }}</td>
-                </tr>
-            {% endfor %}
-        </table>
+
         {{ receipt.preparation|md }} <br>
 
-        {% for category in receipt.category %}
+        <small>
+            {% set counter = 0 %}
+            {% for category in receipt.category %}
+                {% set counter = counter + 1 %}
+                {% if counter > 1 %}
+                    /
+                {% endif %}
+                <a href="{{ url('/rezept-kategorien') }}/{{ category.slug }}">{{ category.name }}</a>
 
-            <a href="/rezept-kategorien/{{ category.slug }}">{{ category.name }}</a>
-
-        {% endfor %}
+            {% endfor %}
+        </small>
 
         </p>
             {% endfor %}

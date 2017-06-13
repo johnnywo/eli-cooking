@@ -41,15 +41,23 @@ return back();
 
         <p>{{ receipt.preparation|md }}</p>
 
-        {% for category in receipt.category %}
+        <small>
+            {% set counter = 0 %}
+            {% for category in receipt.category %}
+                {% set counter = counter + 1 %}
+                {% if counter > 1 %}
+                    /
+                {% endif %}
+                <a href="{{ url('/rezept-kategorien') }}/{{ category.slug }}">{{ category.name }}</a>
 
-            <a href="{{ url('/rezept-kategorien') }}/{{ item.slug }}">{{ item.name }}">{{ category.name }}</a>
-
-        {% endfor %}
-
+            {% endfor %}
+        </small>
+        <br>
         <button class="btn btn-default hidden-print" onclick="printDiv('printableArea')" data-request="onClick">
             Rezept drucken
         </button>
+
+        <br>
 
         {% for receipt in comments.showComments %}
             {% for comment in receipt.comment %}
