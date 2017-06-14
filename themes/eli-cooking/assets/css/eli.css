@@ -85,6 +85,7 @@ h1.receipt {
 .receipt-pre-box{
     background: #f8f8f8;
     padding: 20px;
+    padding-top: 5px;
     margin-bottom: 30px;
     border: 1px solid #ececec;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.08);
