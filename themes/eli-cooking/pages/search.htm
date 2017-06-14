@@ -6,11 +6,11 @@ layout = "default"
 [searchResults]
 resultsPerPage = 10
 showProviderBadge = 1
-noResultsMessage = "Your search did not return any results."
-visitPageMessage = "Visit page"
+noResultsMessage = "Deine Suche brachte keine Ergebnisse."
+visitPageMessage = "Gehe zur Seite"
 ==
 <div class="container">
-    <h2>Search results for {{ searchResults.query }}</h2>
+    <h2>Suchergebnis für "{{ searchResults.query }}"</h2>
 
     {% component 'searchResults' %}
 </div>

@@ -58,7 +58,7 @@ class Plugin extends PluginBase
 				    'title'     => $item->name,
 				    'text'      => $item->preparation,
 				    'url'       => '/rezepte/' . $item->slug,
-				    'thumb'     => $item->picture->first(), // Instance of System\Models\File
+				    'thumb'     => $item->picture, // Instance of System\Models\File
 				    'relevance' => $relevance, // higher relevance results in a higher
 				    // position in the results listing
 				    // 'meta' => 'data',       // optional, any other information you want
@@ -67,7 +67,7 @@ class Plugin extends PluginBase
 		    });
 
 		    return [
-			    'provider' => 'Rezepte', // The badge to display for this result
+			    'provider' => '', // The badge to display for this result
 			    'results'  => $results,
 		    ];
 	    });

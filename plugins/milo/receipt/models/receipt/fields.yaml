@@ -29,22 +29,12 @@ fields:
         type: repeater
         form:
             fields:
+                incredient:
+                    label: Name
+                    span: left
                 amount:
                     label: Menge
-                    span: auto
-                unit:
-                    label: Einheit
-                    type: dropdown
-                    span: auto
-                    options:
-                        Stk: Stk.
-                        g: g
-                        kg: kg
-                        l: l
-                        ml: ml
-                incredient:
-                    label: Zutat
-                    span: full
+                    span: right
     preparation:
         label: Zubereitung
         type: markdown

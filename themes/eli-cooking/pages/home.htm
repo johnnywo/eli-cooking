@@ -4,34 +4,38 @@ layout = "default"
 
 [receipts]
 ==
-<div class="jumbotron">
+{#<div class="jumbotron">
     <div class="container">
         {% content "welcome.htm" %}
     </div>
-</div>
+</div>#}
 
 <div class="container">
 
-    <div class="page-header">
-        <h2>Rezepte
-            <small>jüngst hinzugefügt</small>
-        </h2>
-    </div>
-    <p>
-        Sed porttitor lectus nibh. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
-        Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Quisque velit nisi, pretium
-        ut lacinia in, elementum id enim. Nulla porttitor accumsan tincidunt. Curabitur arcu erat, accumsan id imperdiet
-        et, porttitor at sem.
-    </p>
+    {#    <div class="page-header">
+            <h2>Rezepte
+                <small>jüngst hinzugefügt</small>
+            </h2>
+        </div>#}
 
     {% for item in receipts.index %}
-        <a href="rezepte/{{ item.slug }}"><h2>{{ item.name }}</h2></a>
-        <a href="rezepte/{{ item.slug }}"><img class="img-responsive" src="{{ item.picture.path }}"/></a>
+        <div class="text-center">
+            <a href="rezepte/{{ item.slug }}">
+                <h2>{{ item.name }}</h2>
+            </a>
+        </div>
+        <a href="rezepte/{{ item.slug }}">
+            <img class="img-responsive" src="{{ item.picture.path }}"/>
+        </a>
 
         <p>
-        {{ html_limit(item.intro, 150)|md }}
-        <a href="rezepte/{{ item.slug }}"><button class="btn btn-primary">mehr</button></a>
-        <br>
+            {{ html_limit(item.intro, 150)|md }}
+        </p>
+        <p>
+            <a href="rezepte/{{ item.slug }}">
+                <button class="btn btn-primary">mehr</button>
+            </a>
+        </p>
         <small>
             gelistet in:
             {% set counter = 0 %}
@@ -44,7 +48,8 @@ layout = "default"
 
             {% endfor %}
         </small>
-        </p>
+        <hr>
+        <br>
     {% endfor %}
 
 </div>
