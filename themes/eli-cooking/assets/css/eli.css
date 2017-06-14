@@ -1,25 +1,25 @@
-body{
+body {
     font-family: 'Muli', sans-serif;
     padding-top: 0;
 }
 
-.primary-color{
+.primary-color {
     color: #C5A773;
 }
 
-.primary-color a{
+.primary-color a {
     color: #C5A773;
 }
 
-a{
+a {
     color: #C5A773;
 }
 
-a:hover{
+a:hover {
     color: #a78a5d;
 }
 
-.btn-primary{
+.btn-primary {
     background: #C5A773;
     border-color: #a88a5a;
 }
@@ -52,7 +52,7 @@ a:hover{
 
 .navbar-brand {
     float: left;
-    padding: 7.5px 15px;
+    padding: 18px 15px;
     font-size: 20px;
     line-height: 25px;
     height: 70px;
@@ -63,41 +63,53 @@ a:hover{
         padding-top: 8.5px;
         padding-bottom: 8.5px;
     }
+
+    .navbar-nav {
+        margin-top: 10px;
+    }
 }
 
-h1{
+h1 {
     font-family: 'Coming Soon', cursive;
 }
 
-h2{
+h2 {
     font-family: 'Coming Soon', cursive;
     font-size: 7vw;
 }
 
-h1.receipt{
+h1.receipt {
     font-size: 7vw;
 }
 
 @media (max-width: 768px) {
-    body{
+    body {
         font-size: 14px;
     }
-    .mob-inline{
+
+    .mob-inline {
         display: inline-block;
         vertical-align: middle;
         margin-bottom: 0;
     }
-    .navbar-fixed-top{
+
+    .navbar-fixed-top {
         width: 70px;
         left: inherit;
     }
 }
 
-
-.mt-30{
+.mt-30 {
     margin-top: 30px;
 }
 
-.mb-30{
+.mb-30 {
     margin-bottom: 30px;
+}
+
+/* overriden from simple-sidebar.css
+    no padding
+*/
+#page-content-wrapper {
+    padding: inherit;
 }

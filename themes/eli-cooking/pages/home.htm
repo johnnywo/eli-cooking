@@ -17,39 +17,42 @@ layout = "default"
                 <small>jüngst hinzugefügt</small>
             </h2>
         </div>#}
+    <div class="row">
+        {% for receipt in receipts.index.chunk(5) %}
+            <div class="col-sm-6">
+                {% for item in receipt %}
+                    <div class="text-center">
+                        <a href="rezepte/{{ item.slug }}">
+                            <h2>{{ item.name }}</h2>
+                        </a>
+                    </div>
+                    <a href="rezepte/{{ item.slug }}">
+                        <img class="img-responsive" src="{{ item.picture.path }}"/>
+                    </a>
 
-    {% for item in receipts.index %}
-        <div class="text-center">
-            <a href="rezepte/{{ item.slug }}">
-                <h2>{{ item.name }}</h2>
-            </a>
-        </div>
-        <a href="rezepte/{{ item.slug }}">
-            <img class="img-responsive" src="{{ item.picture.path }}"/>
-        </a>
+                    <p>
+                        {{ html_limit(item.intro, 150)|md }}
+                    </p>
+                    <small>
+                        gelistet in:
+                        {% set counter = 0 %}
+                        {% for category in item.category %}
+                            {% set counter = counter + 1 %}
+                            {% if counter > 1 %}
+                                /
+                            {% endif %}
+                            <a href="{{ url('/rezept-kategorien') }}/{{ category.slug }}">{{ category.name }}</a>
 
-        <p>
-            {{ html_limit(item.intro, 150)|md }}
-        </p>
-        <p>
-            <a href="rezepte/{{ item.slug }}">
-                <button class="btn btn-primary">mehr</button>
-            </a>
-        </p>
-        <small>
-            gelistet in:
-            {% set counter = 0 %}
-            {% for category in item.category %}
-                {% set counter = counter + 1 %}
-                {% if counter > 1 %}
-                    /
-                {% endif %}
-                <a href="{{ url('/rezept-kategorien') }}/{{ category.slug }}">{{ category.name }}</a>
+                        {% endfor %}
+                    </small>
+                    <hr>
+                {% endfor %}
 
-            {% endfor %}
-        </small>
-        <hr>
-        <br>
-    {% endfor %}
+            </div>
+        {% endfor %}
 
+    </div>
+    <div class="text-center">
+        {{ receipts.index.render|raw }}
+    </div>
 </div>

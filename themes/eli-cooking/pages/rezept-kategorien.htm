@@ -9,8 +9,8 @@ layout = "default"
     function onStart()
     {
         $slug = $this->param('slug');
-        $this['pagetitle'] = Category::where('slug', $slug)->first();
-    }
+$this['pagetitle'] = Category::where('slug', $slug)->first();
+}
 ?>
 ==
 
@@ -22,28 +22,31 @@ layout = "default"
 
     {#{{ d(categories.index) }}#}
 
+
     {% for item in categories.index %}
         {% for receipt in item.receipt %}
-        <a href="{{ url('/rezepte') }}/{{ receipt.slug }}"><h2>{{ receipt.name }}</h2></a>
-        <img class="img-responsive" src="{{ receipt.picture.path }}"/>
-        <p>
+            <a href="{{ url('/rezepte') }}/{{ receipt.slug }}"><h2>{{ receipt.name }}</h2></a>
+            <a href="{{ url('/rezepte') }}/{{ receipt.slug }}">
+                <img class="img-responsive" src="{{ receipt.picture.path }}"/>
+            </a>
+            <p>
 
-            {{ html_limit(receipt.intro, 150)|md }} <br>
+                {{ html_limit(receipt.intro, 150)|md }} <br>
 
-        <small>
-            {% set counter = 0 %}
-            {% for category in receipt.category %}
-                {% set counter = counter + 1 %}
-                {% if counter > 1 %}
-                    /
-                {% endif %}
-                <a href="{{ url('/rezept-kategorien') }}/{{ category.slug }}">{{ category.name }}</a>
+                <small>
+                    {% set counter = 0 %}
+                    {% for category in receipt.category %}
+                        {% set counter = counter + 1 %}
+                        {% if counter > 1 %}
+                            /
+                        {% endif %}
+                        <a href="{{ url('/rezept-kategorien') }}/{{ category.slug }}">{{ category.name }}</a>
 
-            {% endfor %}
-        </small>
+                    {% endfor %}
+                </small>
 
-        </p>
-            {% endfor %}
+            </p>
+        {% endfor %}
     {% endfor %}
 
 </div>

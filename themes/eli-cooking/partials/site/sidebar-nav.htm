@@ -14,8 +14,14 @@
             Eli's Cooking
         </a>
     </li>
-    {#{{ d(base_url) }}#}
     {% for item in category %}
         <li><a href="{{ url('/rezept-kategorien') }}/{{ item.slug }}">{{ item.name }}</a></li>
     {% endfor %}
+    <hr>
+    <li>
+        <a href="/ueber-mich">Über mich</a>
+    </li>
+    <li>
+        <a href="/kontakt">Kontakt</a>
+    </li>
 </ul>
