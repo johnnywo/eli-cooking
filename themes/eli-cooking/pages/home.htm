@@ -21,31 +21,35 @@ layout = "default"
         {% for receipt in receipts.index.chunk(5) %}
             <div class="col-sm-6">
                 {% for item in receipt %}
-                    <div class="text-center">
-                        <a href="rezepte/{{ item.slug }}">
-                            <h2>{{ item.name }}</h2>
-                        </a>
-                    </div>
                     <a href="rezepte/{{ item.slug }}">
-                        <img class="img-responsive" src="{{ item.picture.path }}"/>
+                        <img class="img-responsive box-shadow" src="{{ item.picture.path }}"/>
                     </a>
+                    <div class="receipt-pre-box">
+                        <div class="text-center">
+                            <a href="rezepte/{{ item.slug }}">
+                                <h2>{{ item.name }}</h2>
+                            </a>
+                            <small class="who-and-when"><i>Eli am {{ item.created_at|date("d. M. Y") }}</i></small>
+                        </div>
 
-                    <p>
-                        {{ html_limit(item.intro, 150)|md }}
-                    </p>
-                    <small>
-                        gelistet in:
-                        {% set counter = 0 %}
-                        {% for category in item.category %}
-                            {% set counter = counter + 1 %}
-                            {% if counter > 1 %}
-                                /
-                            {% endif %}
-                            <a href="{{ url('/rezept-kategorien') }}/{{ category.slug }}">{{ category.name }}</a>
 
-                        {% endfor %}
-                    </small>
-                    <hr>
+                        <p>
+                            {{ html_limit(item.intro, 150)|md }}
+                        </p>
+                        <small><i>
+                                gelistet in:
+                                {% set counter = 0 %}
+                                {% for category in item.category %}
+                                    {% set counter = counter + 1 %}
+                                    {% if counter > 1 %}
+                                        /
+                                    {% endif %}
+                                    <a href="{{ url('/rezept-kategorien') }}/{{ category.slug }}">{{ category.name }}</a>
+
+                                {% endfor %}</i>
+                        </small>
+                        {#<hr>#}
+                    </div>
                 {% endfor %}
 
             </div>
