@@ -61,5 +61,6 @@ function printDiv(printableArea) {
 $("#menu-toggle").click(function(e) {
     e.preventDefault();
     $("#wrapper").toggleClass("toggled");
+    $("button.navbar-toggle").toggleClass("active");
 });
 

@@ -4,7 +4,7 @@
 
     function onStart()
     {
-        $this['category'] = Category::all();
+        $this['category'] = Category::orderBy('name', 'asc')->get();
     }
 ?>
 ==
@@ -18,10 +18,6 @@
         <li><a href="{{ url('/rezept-kategorien') }}/{{ item.slug }}">{{ item.name }}</a></li>
     {% endfor %}
     <hr>
-    <li>
-        <a href="/ueber-mich">Über mich</a>
-    </li>
-    <li>
-        <a href="/kontakt">Kontakt</a>
-    </li>
+    <li class="{% if this.page.id == 'ueber-mich' %}active{% endif %}"><a href="{{ 'ueber-mich'|page }}">Über mich</a></li>
+    <li class="{% if this.page.id == 'kontakt' %}active{% endif %}"><a href="{{ 'kontakt'|page }}">Kontakt</a></li>
 </ul>
