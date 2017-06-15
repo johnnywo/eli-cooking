@@ -1,9 +1,23 @@
 <div class="container text-center mt-30 mb-30">
-    <form class="form-inline" action="{{ 'search' | page }}" method="get">
-        <div class="form-group mob-inline">
-            <input class="form-control" name="q" type="text" placeholder="Was suchst Du?" autocomplete="off">
+    <div class="row">
+        <div class="col-sm-6 col-sm-offset-3">
+            <form class="form-inline" action="{{ 'search' | page }}" method="get">
+                {#        <div class="form-group mob-inline">
+                            <input class="form-control" name="q" type="text" placeholder="Was suchst Du?" autocomplete="off">
+                        </div>
+                
+                        <button class="btn btn-primary mob-inline" type="submit">Suche</button>#}
+                <div id="custom-search-input">
+                    <div class="input-group col-md-12">
+                        <input type="text" name="q" class="form-control input-lg" placeholder="Was suchst du?"/>
+                        <span class="input-group-btn">
+                        <button class="btn btn-info btn-lg" type="submit">
+                            <i class="icon-search" aria-hidden="true"></i>
+                        </button>
+                    </span>
+                    </div>
+                </div>
+            </form>
         </div>
-
-        <button class="btn btn-primary mob-inline" type="submit">Suche</button>
-    </form>
+    </div>
 </div>

@@ -22,10 +22,10 @@ class Receipts extends ComponentBase
 	{
 		$receipt = Receipt::with('category')
 		                  ->orderBy('created_at', 'desc')
-		                  ->paginate(10);
+		                  ->paginate(12);
 
-		$receipt->chunk(5);
-		$receipt->toArray();
+		/*$receipt->chunk(5);*/
+		/*$receipt->toArray();*/
 		return $receipt;
     }
 

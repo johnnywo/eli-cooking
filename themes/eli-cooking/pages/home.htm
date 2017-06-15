@@ -18,8 +18,8 @@ layout = "default"
             </h2>
         </div>#}
     <div class="row">
-        {% for receipt in receipts.index.chunk(5) %}
-            <div class="col-sm-6">
+        {% for receipt in receipts.index.chunk(4) %}
+            <div class="col-sm-4">
                 {% for item in receipt %}
                     <a href="rezepte/{{ item.slug }}">
                         <img class="img-responsive box-shadow" src="{{ item.picture.path }}"/>
