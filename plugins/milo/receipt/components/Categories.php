@@ -23,8 +23,8 @@ class Categories extends ComponentBase
 		$slug = $this->param('slug');
 		$category = new Category;
 		$category = $category->where('slug', $slug)
-		                   ->with('receipt')
-		                  ->get();
+		                     ->with('receipt')
+		                     ->paginate(12);
 		return $category;
 	}
 }
