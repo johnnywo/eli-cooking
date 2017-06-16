@@ -5,20 +5,6 @@
 fields:
     name:
         label: Rezept Name
-    picture:
-        label: Rezept Bild
-        type: fileupload
-        mode: image
-        imageHeight: 260
-        imageWidth: 260
-        thumbOptions:
-            mode: crop
-            offset:
-                - 0
-                - 0
-            quality: 90
-            sharpen: 0
-            extension: auto
     intro:
         label: Einführung
         type: markdown
@@ -44,6 +30,23 @@ fields:
         label: Kategorien
         type: relation
         nameFrom: name
+
+    picture:
+        label: Rezept Bild
+        type: fileupload
+        mode: image
+        imageHeight: 260
+        imageWidth: 260
+        thumbOptions:
+            mode: crop
+            offset:
+                - 0
+                - 0
+            quality: 75
+            sharpen: 0
+            extension: auto
+
+
 
 
 

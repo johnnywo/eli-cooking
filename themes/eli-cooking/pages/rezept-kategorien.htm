@@ -31,7 +31,7 @@ layout = "default"
                 <div class="col-sm-4">
                     {% for receipt in receipts %}
                         <a href="{{ url('/rezepte') }}/{{ receipt.slug }}">
-                            <img class="img-responsive box-shadow" src="{{ receipt.picture.path }}"/>
+                            <img class="img-responsive box-shadow" src="{{ receipt.picture.thumb(360,360,{'mode':'crop'}) }}"/>
                         </a>
                         <div class="receipt-pre-box">
                             <div class="text-center">

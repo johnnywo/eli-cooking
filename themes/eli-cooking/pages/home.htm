@@ -22,7 +22,7 @@ layout = "default"
             <div class="col-sm-4">
                 {% for item in receipt %}
                     <a href="rezepte/{{ item.slug }}">
-                        <img class="img-responsive box-shadow" src="{{ item.picture.path }}"/>
+                        <img class="img-responsive box-shadow" src="{{ item.picture.thumb(360,360,{'mode':'crop'}) }}"/>
                     </a>
                     <div class="receipt-pre-box">
                         <div class="text-center">

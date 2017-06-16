@@ -63,7 +63,7 @@ h1 {
 }*/
 
 h1.receipt {
-    font-size: 7vw;
+    font-size: 220%;
 }
 
 .receipt-pre-box{
@@ -189,15 +189,9 @@ small.who-and-when{
     color: rgba(153, 153, 153, 0.55);
 }
 
-/*animate hamburger icon*/
-
-/*.navbar-toggle .icon-bar {
-    display: block;
-    width: 22px;
-    height: 1px;
-    border-radius: 1px;
-    background-color: #a88a5a;
-}*/
+/*animate hamburger icon
+    https://codepen.io/designcouch/pen/Atyop
+*/
 
 .navbar-brand {
     float: left;
