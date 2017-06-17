@@ -20,20 +20,6 @@ class Receipt extends Model
 
     protected $slugs = ['slug' => 'name'];
 
-	public function beforeSave()
-	{
-		// Autogenerate name
-		if (empty($this->name)) {
-			$this->name = $this->make . ' ' . $this->model . ' ' . $this->variant;
-		}
-
-		// Force creation of slug
-		if (empty($this->slug)) {
-			unset($this->slug);
-			$this->setSluggedValue('slug', 'name');
-		}
-	}
-
     /**
      * @var array Fillable fields
      */

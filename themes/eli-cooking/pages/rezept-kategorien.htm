@@ -9,8 +9,8 @@ layout = "default"
     function onStart()
     {
         $slug = $this->param('slug');
-        $this['pagetitle'] = Category::where('slug', $slug)->first();
-    }
+$this['pagetitle'] = Category::where('slug', $slug)->first();
+}
 ?>
 ==
 
@@ -22,23 +22,25 @@ layout = "default"
                 <h1>{{ pagetitle.name }}</h1>
             </div>
         </div>
+    </div>
 
-        {#{{ d(categories.index) }}#}
+    {#{{ d(categories.index) }}#}
 
-        {% for item in categories.index %}
-
-            {% for receipts in item.receipt.chunk(4) %}
-                <div class="col-sm-4">
-                    {% for receipt in receipts %}
+        {% for receipts in categories.index.chunk(3) %}
+            <div class="row">
+                {% for receipt in receipts %}
+                    <div class="col-sm-4">
                         <a href="{{ url('/rezepte') }}/{{ receipt.slug }}">
-                            <img class="img-responsive box-shadow" src="{{ receipt.picture.thumb(360,360,{'mode':'crop'}) }}"/>
+                            <img class="img-responsive box-shadow"
+                                 src="{{ receipt.picture.thumb(360,360,{'mode':'crop'}) }}"/>
                         </a>
                         <div class="receipt-pre-box">
                             <div class="text-center">
                                 <a href="{{ url('/rezepte') }}/{{ receipt.slug }}">
                                     <h2>{{ receipt.name }}</h2>
                                 </a>
-                                <small class="who-and-when"><i>Eli am {{ receipt.created_at|date("d. M. Y") }}</i></small>
+                                <small class="who-and-when"><i>Eli am {{ receipt.created_at|date("d. M. Y") }}</i>
+                                </small>
                             </div>
                             <p>
                                 {{ html_limit(receipt.intro, 150)|md }}
@@ -56,12 +58,11 @@ layout = "default"
                                     {% endfor %}</i>
                             </small>
                         </div>
-                    {% endfor %}
-                </div>
-            {% endfor %}
-
+                    </div>
+                {% endfor %}
+            </div>
         {% endfor %}
-    </div>
+
     <div class="text-center">
         {{ receipts.index.render|raw }}
     </div>

@@ -17,10 +17,12 @@ layout = "default"
                 <small>jüngst hinzugefügt</small>
             </h2>
         </div>#}
-    <div class="row">
-        {% for receipt in receipts.index.chunk(4) %}
-            <div class="col-sm-4">
-                {% for item in receipt %}
+
+    {% for receipt in receipts.index.chunk(3) %}
+        <div class="row">
+
+            {% for item in receipt %}
+                <div class="col-sm-4">
                     <a href="rezepte/{{ item.slug }}">
                         <img class="img-responsive box-shadow" src="{{ item.picture.thumb(360,360,{'mode':'crop'}) }}"/>
                     </a>
@@ -49,13 +51,18 @@ layout = "default"
                                 {% endfor %}</i>
                         </small>
                     </div>
-                {% endfor %}
+                </div>
+            {% endfor %}
 
+        </div>
+    {% endfor %}
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="text-center">
+                {{ receipts.index.render|raw }}
             </div>
-        {% endfor %}
+        </div>
+    </div>
 
-    </div>
-    <div class="text-center">
-        {{ receipts.index.render|raw }}
-    </div>
 </div>

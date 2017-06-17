@@ -40,4 +40,5 @@ class Category extends Model
     public $attachOne = [];
     public $attachMany = [];
 
+
 }
