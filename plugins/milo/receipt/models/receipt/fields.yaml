@@ -30,7 +30,6 @@ fields:
         label: Kategorien
         type: relation
         nameFrom: name
-
     picture:
         label: Rezept Bild
         type: fileupload
@@ -42,7 +41,7 @@ fields:
             offset:
                 - 0
                 - 0
-            quality: 75
+            quality: 90
             sharpen: 0
             extension: auto
 
