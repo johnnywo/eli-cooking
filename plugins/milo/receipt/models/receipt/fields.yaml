@@ -36,6 +36,7 @@ fields:
         mode: image
         imageHeight: 260
         imageWidth: 260
+        comment: Fotos von iPhone im Portrait- (Hoch-) Format sind nicht zulässig!! Entweder Landscape- (Quer-) Format oder vorher einfach nochmals überspeichern.
         thumbOptions:
             mode: crop
             offset:
