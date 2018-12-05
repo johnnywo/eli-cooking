@@ -1,5 +1,5 @@
 <div class="ss-result__aside">
-    <a href="{{ url() }}{{ result.url }}">
+    <a href="{{ result.url|app }}">
         <img class="ss-result__image" src="{{ result.thumb.getThumb(120, auto) }}" alt=""/>
     </a>
 </div>
